@@ -11,12 +11,7 @@ float average(float* a,int size){
 // returns the variance of X and Y
 float var(float* x, int size)
 {
-    float sum = 0, var = 0, mean = 0;
-    for(int i = 0 ; i < size ; ++i)
-    {
-        mean += x[i];
-    }
-    mean /= (float)size;
+    mean = average(x,size);
     for(int i = 0 ; i < size ; ++i)
     {
         sum += x[i] * x[i];
@@ -81,9 +76,4 @@ float dev(Point p,Line l){
 // returns the deviation between point p and the line equation of the points
 float dev(Point p,Point** points, int size){
     dev(p,linear_reg(points,size));
-}
-
-int main(int argc, char *argv[]){
-    float x[]={1,2,3,4,5,6,7,8,9,10};
-    std::cout<<var(x,10);
 }
