@@ -11,14 +11,15 @@ float average(float* a,int size){
 // returns the variance of X and Y
 float var(float* x, int size)
 {
-    float sum = 0, var = 0, mean = 0;
+    float sum = 0, mean;
     mean = average(x,size);
     for(int i = 0 ; i < size ; ++i)
     {
         sum += x[i] * x[i];
     }
+    sum /= (float)size;
     sum -= mean * mean;
-    return sum / (float)size;
+    return sum;
 }
 
 // returns the covariance of X and Y
@@ -35,7 +36,7 @@ float cov(float* x, float* y, int size){
 // returns the Pearson correlation coefficient of X and Y
 float pearson(float* x, float* y, int size)
 {
-    return cov(x, y, size) / (float)sqrt((double)var(x, size) * var(y, size));
+    return cov(x, y, size) / (float)sqrtf((double)var(x, size) * var(y, size));
 }
 
 class Line{
