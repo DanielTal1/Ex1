@@ -19,8 +19,9 @@ float var(float* x, int size)
     mean /= (float)size;
     for(int i = 0 ; i < size ; ++i)
     {
-        sum += (x[i] - mean) * (x[i] - mean);
+        sum += x[i] * x[i];
     }
+    sum -= mean * mean;
     return sum / (float)size;
 }
 
