@@ -11,6 +11,7 @@ float average(float* a,int size){
 // returns the variance of X and Y
 float var(float* x, int size)
 {
+    float sum = 0, var = 0, mean = 0;
     mean = average(x,size);
     for(int i = 0 ; i < size ; ++i)
     {
